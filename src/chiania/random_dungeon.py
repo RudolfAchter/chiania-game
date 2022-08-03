@@ -14,6 +14,48 @@ from pprint import pprint
   03  13  23  33  43
 """
 
+directions_example={
+    "1":{ 
+        "name":"north",  
+        "type":"walk",
+        "x" : 0, "y" : -1, 
+        "opp" : "2"
+    },
+    "2":{ 
+        "name":"south",  
+        "type":"walk",
+        "x" : 0, "y" :  1, 
+        "opp" : "1"
+    },
+    "3":{ 
+        "name":"east" ,  
+        "type":"walk",
+        "x" : 1, "y" :  0, 
+        "opp" : "4"
+    },
+    "4":{ 
+        "name":"west" ,  
+        "type":"walk",
+        "x" :-1, "y" :  0, 
+        "opp" : "3"
+    },
+    "5":{
+        "name":"up",
+        "type":"climb",
+        "needs": "rope",
+        "z": 1,
+        "opp" : "6"
+    },
+    "6":{
+        "name":"down",
+        "type":"jump",
+        "z": -1,
+        "opp" : "5"
+    }
+}
+
+
+
 directions={
     "1":{ "name":"north",  "x" : 0, "y" : -1, "opp" : "2"},
     "2":{ "name":"south",  "x" : 0, "y" :  1, "opp" : "1"},
