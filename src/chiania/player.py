@@ -46,6 +46,8 @@ class character
     - has a status
     - has equipment
     - has inventory
+    - is a species
+    - has a class
 """
 class character:
     def __init__(self):
