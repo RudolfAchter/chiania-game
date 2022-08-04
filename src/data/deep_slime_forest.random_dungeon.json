@@ -5,7 +5,8 @@
         "random_dungeon":{
             "name" : "Bat Cave",
             "filename" : "bat_cave",
-            "generate" : "daily",
+            "generate" : "timestr",
+            "timestr" : "%Y-%m-%d-%H",
             "width" : 10,
             "height" : 10,
             "steps" : 30,
@@ -14,17 +15,19 @@
         }
     },
     "locations":{
-        "entry":{
+        "Entry to Bat Cave":{
             "x":2,
             "y":0,
             "description" : "Location: Bat Cave in Slime Forest; A gap reaches deep into rock and earth. You hear a flapping noise",
             "monsters" : [
                 {"name": "Bat",             "count": 1}
             ],
-            "north" : {
-                "name" : "Deep Slime Forest",
-                "type" : "static",
-                "file" : "locations.viridis.world.json"
+            "directions":{
+                "north" : {
+                    "name" : "Deep Slime Forest",
+                    "type" : "static",
+                    "file" : "world.json"
+                }
             }
         }
     }

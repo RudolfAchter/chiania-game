@@ -5,6 +5,7 @@
     },
     "locations":{
         "Kingdom Street":{
+            "area_type" : "City",
             "comment" : "JSON per definition allows no comments. But you could do things like i do here",
             "description" : "Location: Kingdom Street; This place is bustling with people. \nYou noticed following exits: east (East Kingdom Street), north (Tavern), south (Marketplace)",
             "monsters" : [
@@ -21,30 +22,43 @@
                     "count": 10
                 }
             ],
-            "east" : "East Kingdom Street",
-            "north" : "Tavern",
-            "south" : "Marketplace",
-            "area_type" : "City"
+            "directions":{
+                "east" : "East Kingdom Street",
+                "north" : "Tavern",
+                "south" : {
+                    "name": "Marketplace",
+                    "move" : "teleport"
+                }
+            }
         },
         "Tavern":{
+            "area_type" : "City",
             "description" : "Location: Tavern.\nYou talk to the innkeeper. He says \"Stay here for a while and get some rest.\" \nYou noticed following exits: south (Kingdom Street)",
             "monsters" : [
                 { "name": "Cockroach",      "count": 14 },
                 { "name": "Mouse",          "count": 4 },
                 { "name": "City Guard",     "count": 1 }
             ],
-            "south" : "Kingdom Street",
-            "area_type" : "City"
+            "directions": {
+                "south" : {
+                    "name": "Kingdom Street",
+                    "move": "jump"
+                }
+            }
         },
         "Marketplace":{
+            "area_type": "City",
             "description" : "Location: Marketplace; This place is bustling with people.\nMaybe you want to go to the blue duck\nhttps://shorturl.at/agnQR\nYou noticed following exits: north (Kingdom Street)",
             "monsters": [
                 { "name": "Cockroach",      "count": 14 },
                 { "name": "Mouse",          "count": 4 },
-                { "name": "City Guard",     "count": 1 }    
+                { "name": "City Guard",     "count": 1 }
             ],
-            "north": "Kingdom Street",
-            "area_type": "City"
+            "directions":{
+                "north": "Kingdom Street",
+                "east": "Slime Forest"
+            }
+            
         },
         "Slime Forest":{
             "description": "Location: Slime Forest; You are surrounded by woods. \nYou noticed following exits: west (Border of Slime Forest), east (Deep Slime Forest), north (A Lake in Slime Forest)",
@@ -52,7 +66,11 @@
                 { "name": "Slime",             "count": 3},
                 { "name": "Forest Slime",      "count": 7}
             ],
-            "west" : "Marketplace"
+            "directions":{
+                "west" : "Marketplace",
+                "east" : "Deep Slime Forest"
+            }
+            
         },
         "Deep Slime Forest":{
             "description" : "Location: Deep Slime Forest; You are surrounded by woods. \nYou noticed following exits: west (Slime Forest)",
@@ -62,11 +80,12 @@
                 {"name": "Hungry Wolf",     "count": 1},
                 {"name": "Swamp Slime",     "count": 1}
             ],
-            "west" : "Slime Forest",
-            "south" : {
-                "name" : "entry",
-                "type" : "random_dungeon",
-                "file" : "deep_slime_forest.random_dungeon.json"
+            "directions":{
+                "west" : "Slime Forest",
+                "south" : {
+                    "name" : "Entry to Bat Cave",
+                    "file" : "deep_slime_forest.random_dungeon.json"
+                }    
             }
         }
     }

@@ -1,3 +1,2 @@
-# random_dungeon
-
-Here shoud be random_dungeon .json Files be generated
+# Random Dungeons
+Rondom Dungeon Data goes here

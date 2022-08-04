@@ -71,9 +71,15 @@ def random_dungeon(location,location_file):
         file.close()
     
     now=datetime.datetime.now()
-    datestr=now.strftime("%Y-%m-%d")
+    
     
     if data["settings"]["random_dungeon"]["generate"]=="daily":
+        timestr="%Y-%m-%d"
+    elif data["settings"]["random_dungeon"]["generate"]=="timestr":
+        timestr=data["settings"]["random_dungeon"]["timestr"]
+
+    if data["settings"]["random_dungeon"]["generate"] in ["daily","timestr"]:
+        datestr=now.strftime(timestr)
         dungeon_out_json=config.settings.dungeon_data_dir + "/random_dungeon/" + data["settings"]["random_dungeon"]["filename"]+ "_" + datestr + ".json"
         dungeon_out_relative= "random_dungeon/" + data["settings"]["random_dungeon"]["filename"]+ "_" + datestr + ".json"
         dungeon_out_html=config.settings.dungeon_data_dir + "/random_dungeon/" + data["settings"]["random_dungeon"]["filename"]+ "_" + datestr + ".html"
@@ -145,7 +151,7 @@ def random_dungeon(location,location_file):
         y = y + directions[cdir]["y"]
         
         #corridor from previous room to new room
-        duda[px][py][directions[cdir]["name"]]={
+        duda[px][py]["directions"][directions[cdir]["name"]]={
             "name" : (data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y)),
             "type" : "random_dungeon",
             "file" : dungeon_out_relative
@@ -154,24 +160,28 @@ def random_dungeon(location,location_file):
     
         if not x in duda: duda[x]={}
         
-        #If room already exists make an additional direction there
+        
         if y in duda[x]:
+            #If room already exists make an additional direction there
             oppDirName=directions[odir]["name"]
-            duda[x][y][oppDirName]={
+            duda[x][y]["directions"][oppDirName]={
                 "name" : duda[px][py]["name"],
                 "type" : "random_dungeon",
                 "file" : dungeon_out_relative
             }
         else:
+            #Else make a new room / location
             duda[x][y]={
                 "x": x,
                 "y": y,
                 "name" : (data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y)),
                 "description" : (data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y)),
-                directions[odir]["name"] : {
-                    "name" : prev_room_name,
-                    "type" : "random_dungeon",
-                    "file" : dungeon_out_relative
+                "directions":{
+                    directions[odir]["name"] : {
+                        "name" : prev_room_name,
+                        "type" : "random_dungeon",
+                        "file" : dungeon_out_relative
+                    }
                 }
             }
         
@@ -244,7 +254,7 @@ def random_dungeon(location,location_file):
         for x in range(data["settings"]["random_dungeon"]["width"]):
             if x in duda and y in duda[x]:
                 classes=['room']
-                for key in duda[x][y]:
+                for key in duda[x][y]["directions"]:
                     if key in ["north","south","east","west"]:
                         classes.append(key)
                 #cell content
