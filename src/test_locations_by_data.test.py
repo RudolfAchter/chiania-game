@@ -30,9 +30,8 @@ if my_here:
 print("\n\n--------------------------------------\n\n")
 
 my_loc={
-    "name": "entry",
-    "file": "deep_slime_forest.random_dungeon.json",
-    "type": "random_dungeon"
+    "name": "Entry to Bat Cave",
+    "file": "deep_slime_forest.random_dungeon.json"
 }
 
 my_here=chiania.room().locate(my_loc)

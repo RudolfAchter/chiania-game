@@ -27,7 +27,7 @@
                 "north" : "Tavern",
                 "south" : {
                     "name": "Marketplace",
-                    "move" : "teleport"
+                    "move" : "walk"
                 }
             }
         },
@@ -42,7 +42,7 @@
             "directions": {
                 "south" : {
                     "name": "Kingdom Street",
-                    "move": "jump"
+                    "move": "walk"
                 }
             }
         },
@@ -55,10 +55,73 @@
                 { "name": "City Guard",     "count": 1 }
             ],
             "directions":{
-                "north": "Kingdom Street",
-                "east": "Slime Forest"
+                "north": "Kingdom Street"
             }
             
+        },
+        "East Kingdom Street":{
+            "area_type": "City",
+            "description": "Location: East Kingdom Street; This place is bustling with people. \nYou noticed following exits: east (Gate of Viridis), west (Kingdom Street), north (Blacksmith Shop), south (Stable)",
+            "monsters": [
+                {"name": "Cockroach", "count":8},
+                {"name": "Mouse", "count":8},
+                {"name": "Thief", "count":4},
+                {"name": "Scum", "count":2},
+                {"name": "City Guard", "count":1}
+            ],
+            "directions":{
+                "north": "Blacksmith Shop",
+                "south": "Stable",
+                "east": "Gate of Viridis"
+            }
+        },
+        "Blacksmith Shop":{
+            "area_type": "City",
+            "description": "Location: Blacksmith Shop; Adventurers gathered here for equipments.\nat the moment the blacksmith is out for travelling.\nWhen he is back you can get some fair equipment here \nYou noticed following exits: south (East Kingdom Street)",
+            "monsters":[
+                {"name": "Mouse", "count":1},
+                {"name": "City Guard","count":1}
+            ],
+            "directions":{
+                "south": "East Kingdom Street"
+            }
+        },
+        "Stable":{
+            "area_type":"City",
+            "description": "Location: Stable; Adventurers gathered here for mounts, such as deers. \nYou noticed following exits: north (East Kingdom Street)",
+            "monsters": [
+                {"name": "Cockroach","count":10},
+                {"name": "Mouse", "count": 10},
+                {"name": "City Guard", "count": 1}
+            ],
+            "directions":{
+                "north": "East Kingdom Street"
+            }
+        },
+        "Gate of Viridis":{
+            "area_type":"City",
+            "description": "Location: Gate of Viridis. \nYou noticed following exits: west (East Kingdom Street), east (Border of Slime Forest)",
+            "monsters":[
+                {"name": "Cockroach","count":5},
+                {"name": "Mouse", "count":4},
+                {"name": "City Guard", "count":1}
+            ],
+            "directions":{
+                "east": "Border of Slime Forest",
+                "west": "East Kingdom Street"
+            }
+        },
+        "Border of Slime Forest":{
+            "area_type":"Wild",
+            "description": "Location: Border of Slime Forest; You entered the forest. \nYou noticed following exits: west (Gate of Viridis), east (Slime Forest)",
+            "monsters":[
+                {"name":"Slime","count":7},
+                {"name":"Forest Slime","count":3}
+            ],
+            "directions":{
+                "west":"Gate of Viridis",
+                "east":"Slime Forest"
+            }
         },
         "Slime Forest":{
             "description": "Location: Slime Forest; You are surrounded by woods. \nYou noticed following exits: west (Border of Slime Forest), east (Deep Slime Forest), north (A Lake in Slime Forest)",
@@ -67,10 +130,18 @@
                 { "name": "Forest Slime",      "count": 7}
             ],
             "directions":{
-                "west" : "Marketplace",
-                "east" : "Deep Slime Forest"
+                "west" : "Border of Slime Forest",
+                "east" : "Deep Slime Forest",
+                "north": "A Lake in Slime Forest"
             }
-            
+        },
+        "A Lake in Slime Forest":{
+            "description": "Location: A Lake in Slime Forest; You see a lake here. \nYou noticed following exits: south (Slime Forest)",
+            "monsters": [
+                {"name": "Forest Slime",    "count":2},
+                {"name": "Aquatic Slime",   "count":4},
+                {"name": "Murloc Grunt",    "count":4}
+            ]
         },
         "Deep Slime Forest":{
             "description" : "Location: Deep Slime Forest; You are surrounded by woods. \nYou noticed following exits: west (Slime Forest)",
@@ -88,5 +159,6 @@
                 }    
             }
         }
+
     }
 }

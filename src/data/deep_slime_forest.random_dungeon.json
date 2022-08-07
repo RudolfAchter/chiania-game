@@ -6,7 +6,7 @@
             "name" : "Bat Cave",
             "filename" : "bat_cave",
             "generate" : "timestr",
-            "timestr" : "%Y-%m-%d-%H",
+            "timestr" : "%Y-%m-%d-%H%M",
             "width" : 10,
             "height" : 10,
             "steps" : 30,

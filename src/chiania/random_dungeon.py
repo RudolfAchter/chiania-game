@@ -83,6 +83,7 @@ def random_dungeon(location,location_file):
         dungeon_out_json=config.settings.dungeon_data_dir + "/random_dungeon/" + data["settings"]["random_dungeon"]["filename"]+ "_" + datestr + ".json"
         dungeon_out_relative= "random_dungeon/" + data["settings"]["random_dungeon"]["filename"]+ "_" + datestr + ".json"
         dungeon_out_html=config.settings.dungeon_data_dir + "/random_dungeon/" + data["settings"]["random_dungeon"]["filename"]+ "_" + datestr + ".html"
+        dungeon_name=data["settings"]["random_dungeon"]["name"] + " " + datestr
     #if we have generated this dungeon already
     if os.path.exists(dungeon_out_json):
         with open(dungeon_out_json) as file:
@@ -152,7 +153,7 @@ def random_dungeon(location,location_file):
         
         #corridor from previous room to new room
         duda[px][py]["directions"][directions[cdir]["name"]]={
-            "name" : (data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y)),
+            "name" : (dungeon_name + " " + str(x) + " " + str(y)),
             "type" : "random_dungeon",
             "file" : dungeon_out_relative
         }
@@ -174,8 +175,8 @@ def random_dungeon(location,location_file):
             duda[x][y]={
                 "x": x,
                 "y": y,
-                "name" : (data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y)),
-                "description" : (data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y)),
+                "name" : (dungeon_name + " " + str(x) + " " + str(y)),
+                "description" : (dungeon_name + " " + str(x) + " " + str(y)),
                 "directions":{
                     directions[odir]["name"] : {
                         "name" : prev_room_name,
@@ -185,7 +186,7 @@ def random_dungeon(location,location_file):
                 }
             }
         
-        prev_room_name=(data["settings"]["random_dungeon"]["name"] + " " + str(x) + " " + str(y))
+        prev_room_name=duda[x][y]["name"]
 
         #save number of step for showing in debug render
         if 'stepnr' in duda[x][y]:
