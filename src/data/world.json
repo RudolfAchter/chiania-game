@@ -8,19 +8,10 @@
             "area_type" : "City",
             "comment" : "JSON per definition allows no comments. But you could do things like i do here",
             "description" : "Location: Kingdom Street; This place is bustling with people. \nYou noticed following exits: east (East Kingdom Street), north (Tavern), south (Marketplace)",
-            "monsters" : [
-                {
-                    "name": "Cockroach",
-                    "count": 10
-                },
-                {
-                    "name": "Mouse",
-                    "count": 10
-                },
-                {
-                    "name": "City Guard",
-                    "count": 10
-                }
+            "object" : [
+                {"type": "monster", "name": "Cockroach", "count": 10},
+                {"type": "monster", "name": "Mouse", "count": 10},
+                {"type": "monster", "name": "City Guard", "count": 10}
             ],
             "directions":{
                 "east" : "East Kingdom Street",
@@ -34,10 +25,10 @@
         "Tavern":{
             "area_type" : "City",
             "description" : "Location: Tavern.\nYou talk to the innkeeper. He says \"Stay here for a while and get some rest.\" \nYou noticed following exits: south (Kingdom Street)",
-            "monsters" : [
-                { "name": "Cockroach",      "count": 14 },
-                { "name": "Mouse",          "count": 4 },
-                { "name": "City Guard",     "count": 1 }
+            "object" : [
+                { "type": "monster", "name": "Cockroach",      "count": 14 },
+                { "type": "monster", "name": "Mouse",          "count": 4 },
+                { "type": "monster", "name": "City Guard",     "count": 1 }
             ],
             "directions": {
                 "south" : {
@@ -49,10 +40,10 @@
         "Marketplace":{
             "area_type": "City",
             "description" : "Location: Marketplace; This place is bustling with people.\nMaybe you want to go to the blue duck\nhttps://shorturl.at/agnQR\nYou noticed following exits: north (Kingdom Street)",
-            "monsters": [
-                { "name": "Cockroach",      "count": 14 },
-                { "name": "Mouse",          "count": 4 },
-                { "name": "City Guard",     "count": 1 }
+            "object": [
+                { "type": "monster", "name": "Cockroach",      "count": 14 },
+                { "type": "monster", "name": "Mouse",          "count": 4 },
+                { "type": "monster", "name": "City Guard",     "count": 1 }
             ],
             "directions":{
                 "north": "Kingdom Street"
@@ -62,7 +53,7 @@
         "East Kingdom Street":{
             "area_type": "City",
             "description": "Location: East Kingdom Street; This place is bustling with people. \nYou noticed following exits: east (Gate of Viridis), west (Kingdom Street), north (Blacksmith Shop), south (Stable)",
-            "monsters": [
+            "object": [
                 {"name": "Cockroach", "count":8},
                 {"name": "Mouse", "count":8},
                 {"name": "Thief", "count":4},
@@ -78,7 +69,7 @@
         "Blacksmith Shop":{
             "area_type": "City",
             "description": "Location: Blacksmith Shop; Adventurers gathered here for equipments.\nat the moment the blacksmith is out for travelling.\nWhen he is back you can get some fair equipment here \nYou noticed following exits: south (East Kingdom Street)",
-            "monsters":[
+            "object":[
                 {"name": "Mouse", "count":1},
                 {"name": "City Guard","count":1}
             ],
@@ -89,7 +80,7 @@
         "Stable":{
             "area_type":"City",
             "description": "Location: Stable; Adventurers gathered here for mounts, such as deers. \nYou noticed following exits: north (East Kingdom Street)",
-            "monsters": [
+            "object": [
                 {"name": "Cockroach","count":10},
                 {"name": "Mouse", "count": 10},
                 {"name": "City Guard", "count": 1}
@@ -101,7 +92,7 @@
         "Gate of Viridis":{
             "area_type":"City",
             "description": "Location: Gate of Viridis. \nYou noticed following exits: west (East Kingdom Street), east (Border of Slime Forest)",
-            "monsters":[
+            "object":[
                 {"name": "Cockroach","count":5},
                 {"name": "Mouse", "count":4},
                 {"name": "City Guard", "count":1}
@@ -114,7 +105,7 @@
         "Border of Slime Forest":{
             "area_type":"Wild",
             "description": "Location: Border of Slime Forest; You entered the forest. \nYou noticed following exits: west (Gate of Viridis), east (Slime Forest)",
-            "monsters":[
+            "object":[
                 {"name":"Slime","count":7},
                 {"name":"Forest Slime","count":3}
             ],
@@ -125,7 +116,7 @@
         },
         "Slime Forest":{
             "description": "Location: Slime Forest; You are surrounded by woods. \nYou noticed following exits: west (Border of Slime Forest), east (Deep Slime Forest), north (A Lake in Slime Forest)",
-            "monsters": [
+            "object": [
                 { "name": "Slime",             "count": 3},
                 { "name": "Forest Slime",      "count": 7}
             ],
@@ -137,7 +128,7 @@
         },
         "A Lake in Slime Forest":{
             "description": "Location: A Lake in Slime Forest; You see a lake here. \nYou noticed following exits: south (Slime Forest)",
-            "monsters": [
+            "object": [
                 {"name": "Forest Slime",    "count":2},
                 {"name": "Aquatic Slime",   "count":4},
                 {"name": "Murloc Grunt",    "count":4}
@@ -145,7 +136,7 @@
         },
         "Deep Slime Forest":{
             "description" : "Location: Deep Slime Forest; You are surrounded by woods. \nYou noticed following exits: west (Slime Forest)",
-            "monsters" : [
+            "object" : [
                 {"name": "Forest Slime",    "count": 7},
                 {"name": "Bat",             "count": 1},
                 {"name": "Hungry Wolf",     "count": 1},
@@ -159,6 +150,5 @@
                 }    
             }
         }
-
     }
 }
