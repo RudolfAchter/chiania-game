@@ -9,9 +9,8 @@ import json
 myuser=config.secrets.dbuser
 mypassword=config.secrets.dbpass
 
-#, server_api=ServerApi('1')
-dbclient = pymongo.MongoClient("mongodb+srv://"+myuser+":"+mypassword+"@chia-stuff.g7ivxgh.mongodb.net/?retryWrites=true&w=majority")
 
+dbclient = pymongo.MongoClient("mongodb+srv://"+myuser+":"+mypassword+"@chia-stuff.g7ivxgh.mongodb.net/?retryWrites=true&w=majority")
 #db is "chiania"
 db = dbclient.chiania
 #collection is locations
