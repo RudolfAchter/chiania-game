@@ -3,3 +3,4 @@ output/*
 __pycache__/
 **/random_dungeon/*.json
 **/random_dungeon/*.html
+src/config/secrets.py

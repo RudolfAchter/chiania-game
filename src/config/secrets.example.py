@@ -1,0 +1,2 @@
+dbuser="yourdbuser"
+dbpass="yourdbpassword"
