@@ -2,6 +2,9 @@ import pymongo
 from pprint import pprint
 import config.secrets
 import json
+
+# I use chia-dev-tools for encoding and decoding puzzle hashes
+# https://github.com/Chia-Network/chia-dev-tools
 from chia.util.bech32m import decode_puzzle_hash, encode_puzzle_hash
 
 # Your Internet IP must be added to MongoDB Atlas Network Access IPs
